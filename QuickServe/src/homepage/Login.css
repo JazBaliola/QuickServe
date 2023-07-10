@@ -1,0 +1,61 @@
+body{
+    background-image: linear-gradient(to bottom, rgb(146, 209, 109), rgb(25, 154, 13));
+    position:fixed;
+   
+  }
+
+  
+  .logo{
+   margin-left: 400px;
+   margin-top: 50px;
+   margin-right: 400px;
+   font-family: 'Source Sans Pro', sans-serif;
+  
+  }
+  .login{
+    background-color: whitesmoke ;
+    
+    background-position: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 5%;
+    padding-top: 1%;
+    border-radius: 25px;
+    height: 53%;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  .inputHomepage, #emailLogin, #passwordLogin{
+  width: 340px;
+  padding-left:4%;
+  height: 40px;
+  margin: 9px 0; 
+  border-radius: 26px;
+  background-color: whitesmoke;
+  border-color: grey;
+  font-family: 'Source Sans Pro', sans-serif;
+  border-width: thin;
+  }
+  
+  h1{
+ text-align: center;
+ font-family: 'Source Sans Pro', sans-serif;
+color:#2D8D34;
+text-shadow: black 1px 0 70px;
+padding: 1%;
+  }
+  
+.boxes{
+  padding:4%;
+  padding-bottom: 8%;
+  margin-left: 12%;
+  margin-right: 10%;
+  border-radius: 26px;
+  height: 40px;
+  width: 100px;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #2D8D34;
+  color:white;
+  border-width: thin;
+  font-weight: bold;
+}

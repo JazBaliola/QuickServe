@@ -9,8 +9,9 @@ Fabian Gomez Ayala <br/>
 Rahul Bisht <br/>
 Ravneet Kaur <br/>
 
-# SERN Stack
-SQL - Database <br/>
-Express.js - Backend <br/>
-React.js - Frontend <br/>
-Node.js - JavaScript runtime environment <br/>
+# Code Stack
+<i>In this Project we are using <b>SERN</b> Stack which consist of the following.</i> <br/><br/>
+<b>S</b>QL - Database <br/>
+<b>E</b>xpress.js - Backend <br/>
+<b>R</b>eact.js - Frontend <br/>
+<b>N</b>ode.js - JavaScript runtime environment <br/>

@@ -2,9 +2,9 @@
 Booking System and Ticketing System for Prospect Now.
 
 # Developers
-Jazper Vincent Baliola
-Anmolpreet Bhangoo
-Burhanuddin Burhanuddin
-Fabian Gomez Ayala
-Rahul Bisht
-Ravneet Kaur
+Jazper Vincent Baliola <br/>
+Anmolpreet Bhangoo <br/>
+Burhanuddin Burhanuddin <br/>
+Fabian Gomez Ayala <br/>
+Rahul Bisht <br/>
+Ravneet Kaur <br/>

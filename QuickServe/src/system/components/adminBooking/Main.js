@@ -72,8 +72,9 @@ function Main({
         <tbody className="table-body-ab">
           {requests.map((val, index) => (
             <Table 
-              key={index}
+              key={val.id}
               isChecked={selectedRows.includes(index)}
+              id={val.id}
               roomID={val.roomID}
               name={val.name}
               noOfGuest={val.noOfGuest}

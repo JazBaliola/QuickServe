@@ -14,6 +14,7 @@ export default function CreateBooking() {
   const location = useLocation();
   const { state } = location;
 
+  const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [roomID, setRoomID] = useState("");
   const [noOfGuest, setNoOfGuest] = useState("");
@@ -21,9 +22,11 @@ export default function CreateBooking() {
   const [time, setStartTime] = useState("");
   const [totalHours, setTotalHours] = useState("");
   const [enquiry, setEnquiry] = useState("");
+  const [endTime, setEndTime] = useState("");
 
   useEffect(() => {
     if (state) {
+      setId(state.id || "");
       setName(state.name || "");
       setRoomID(state.roomID || "");
       setNoOfGuest(state.noOfGuest || "");
@@ -31,16 +34,18 @@ export default function CreateBooking() {
       setStartTime(state.startTime || "");
       setTotalHours(state.totalHours || "");
       setEnquiry(state.enquiry || "");
-      // } else {
-      //   navigate("/error");
+      setEndTime(state.endTime || "");
     }
-    // }, [state, navigate]);
   }, [state]);
 
   function handleSubmit(event) {
     event.preventDefault();
+    Swal.fire({
+      icon: 'success',
+      title: 'Booking Created Successfully'
+    })
     if (state) {
-      Axios.put(`http://localhost:3001/booking/${state.id}`, {
+      Axios.put(`http://localhost:3001/booking/${id}`, {
         roomID,
         name,
         noOfGuest,
@@ -82,36 +87,38 @@ export default function CreateBooking() {
     navigate("/admin");
   }
 
-  // const update = () => {
-  //   Axios.put("http://localhost:3001/update", {
-  //     id: id,
-  //     roomID: roomID,
-  //     name: name,
-  //     noOfGuest: noOfGuest,
-  //     bookingDate: bookingDate,
-  //     startTime: startTime,
-  //     totalHours: totalHours,
-  //     enquiry: enquiry,
-  //     endTime: endTime,
-  //   })
-  //     .then(() => {
-  //       Swal.fire({
-  //         title: "<strong>Update completed.</strong>",
-  //         html: `<i> Booking request made by ${name} was included in successfully</i>`,
-  //         icon: "success",
-  //       });
-  //     })
-  //     .catch(function (error) {
-  //       Swal.fire({
-  //         icon: "error",
-  //         title: "Oops...",
-  //         text:
-  //           JSON.parse(JSON.stringify(error)).message === "Network Error"
-  //             ? "Please, try again this operation later"
-  //             : JSON.parse(JSON.stringify(error)).message,
-  //       });
-  //     });
-  // };
+  const update = () => {
+    Axios.put("http://localhost:3001/update", {
+      id: id,
+      roomID: roomID,
+      name: name,
+      noOfGuest: noOfGuest,
+      bookingDate: date,
+      startTime: time,
+      totalHours: totalHours,
+      enquiry: enquiry,
+      endTime: endTime,
+    })
+      .then(() => {
+        Swal.fire({
+          title: "<strong>Update completed.</strong>",
+          html: `<i> Booking request made by ${name} was included in successfully</i>`,
+          icon: "success",
+        }).then(() => {
+          navigate('/admin');
+        });
+      })
+      .catch(function (error) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text:
+            JSON.parse(JSON.stringify(error)).message === "Network Error"
+              ? "Please, try again this operation later"
+              : JSON.parse(JSON.stringify(error)).message,
+        });
+      });
+  };
 
   return (
     <>
@@ -238,8 +245,10 @@ export default function CreateBooking() {
               <div className="submitButtonPos-ct">
                 {state ? (
                   <>
-                    <button className="submit-ct" type="submit">Update</button>
-                    <button className="submit-ct" type="button" onClick={handleCancel}>
+                    <button className="update-ct" type="submit" onClick={update}>
+                      Update
+                    </button>
+                    <button className="cancel-ct" type="button" onClick={handleCancel}>
                       Cancel
                     </button>
                   </>

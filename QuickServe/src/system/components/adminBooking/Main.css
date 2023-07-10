@@ -61,6 +61,7 @@
   }
 
   .button-content-ab{
+    width: 100%;
     font-size: 13px;
     text-align: center;
     border: #000 1px solid;

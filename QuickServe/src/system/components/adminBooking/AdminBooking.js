@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from "react";
 import Axios from "axios";
 import Swal from 'sweetalert2';
 import logo from '../../assets/prospectLogo.png';
@@ -12,8 +12,8 @@ const user = {
 
 const AdminBooking = () => {
 
-  const [requests, setRequests] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
+  const [requests, setRequests] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState('');
   const navigate = useNavigate();
   const searchedRequests = requests.filter(
     (request) => {
@@ -43,7 +43,7 @@ const AdminBooking = () => {
   const handleSearchInputChange = (event) => {
     const value = event.target.value;
     setSearchValue(value);
-    getRequestList(value);
+    // getRequestList(value);
   };
   
   const handleEdit = (values) => {
@@ -76,7 +76,6 @@ const AdminBooking = () => {
       if(result.isConfirmed) {
         Axios.delete(`http://localhost:3001/delete/${id}` )
         .then(() => {
-          console.log(id);
           getRequestList();
           Swal.fire({
             title:'Success!',
@@ -115,22 +114,12 @@ const AdminBooking = () => {
   const handleAddBooking = () => {
     navigate('/createBooking');
   };
-  // const editBooking = (val) => {
-  //   setEdit(true);
-  //   setId(val.id);
-  //   setRoomID(val.roomID);
-  //   setName(val.name);
-  //   setNoOfGuest(val.noOfGuest);
-  //   setBookingDate(val.bookingDate);
-  //   setStartTime(val.startTime);
-  //   setTotalHours(val.totalHours);
-  //   setEnquiry(val.enquiry);
-  //   setEndTime(val.endTime);
-  // }
 
   getRequestList();
 
-
+  // React.useEffect(() => {
+  //   getRequestList();
+  // }, []);
 
   return (
     <>
